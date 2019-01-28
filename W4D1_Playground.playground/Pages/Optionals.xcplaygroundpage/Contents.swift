@@ -19,17 +19,13 @@ var doubleNumberValue: Double? = nil
  - Experiment:
  Declare a non-optional variable of a `String` and set it to `nil`. What happens?
  */
-
-
+// var language: String = nil
+// woohoo ya cannot do that
 /*:
  - Experiment:
  Declare an optional variable of a type `String` and set an initial `String` value to it. Then set it to `nil` on the next line. Does this work? Why or why not?
  */
-
-
-/*:
- Let's consider multiplying two numbers together that are of different types. Since we have a `Double` and an `Int`, we need to convert the two numbers to the same type. For example, creating a new `Double` using an `Int`.
- */
+var language: String? = nil
 
 var ratio: Double = 10.0 // ratio is a Double
 var integerValue: Int = 20 // integerValue is an Int
@@ -42,19 +38,24 @@ ratio * convertIntegerValue // now this works!
 /*:
  Now let's say I have a `String` that contains digits and I want to use the numbered value of the `String` to multiply with another `Double`.
  */
+var input: String = "64"
+var inputInt = Double(input)!
 
+var multiplication = inputInt * ratio
 /*:
  - Experiment:
  Declare a `String` containing digits and try converting it to a `Double` the same way shown in the above example. What do you notice about the variable type? Hint: Use 'Option' + Mouse Click on the variable to see the type
  */
+var inputString:String = "61041"
+var inputDouble = Double(inputString)!
 
-
+// it's asking if it's an optional double
 /*:
  - Experiment:
  With your newly converted `Double` from a `String`, try multiplying it with the 'ratio' variable. What happens?
  */
-
-
+var newMultiplication = inputDouble * ratio
+// can't multiply optional with a non optional, must add bang operator
 /*:
  Your newly converted `Double` value is a `Double?` which indicates we might have a double or we might have nothing.  Converting a `String` to a `Double` might fail because the `String` does not guarantee there will only be digits within it.
  
@@ -72,41 +73,44 @@ ratio * convertIntegerValue // now this works!
  */
 let myOptionalDouble: Double? = 12.0
 print("\(myOptionalDouble!)")
-
 /*:
   - Experiment:
  Now you try! Try printing out your converted `Double?` with a force unwrap
 */
-
-
-
+var numbaaaaa = "164"
+var numbaInt = Double(numbaaaaa)! // force unwrap
 /*:
  - Experiment:
  Go back and change your `String` to something that has no digits. What happens and why?
  */
-
-
-
+// it will crash obviously 🙀
 /*:
  - Experiment:
  Declare an optional variable of a type `String` and set an initial `String` value to it. Try printing it.
  Now print it again, but this time unwrap the optional variable using the `'!'`. What's different about the two lines you printed?
  */
+var dogName:String? = "Bean"
+print(dogName!)
+
+
+// first one prints Optional("Bean")
+// just prints Bean
 
 
 /*:
  - Experiment:
  Try setting an optional `String` variable to a non-optional `String` variable. What happens? What can you do to prevent the compiler from throwing an error?
  */
+//var catName = "Milo"
+//catName = dogName
 
-
+// must be unwrapped
 /*:
  The next way to deal with optionals is called `"Conditional unwrapping"` or sometimes casually called an `"if-let"`. It's **much** safer, and won't break your Playground, or any of your code.
  
   The code below uses a conditional unwrap on `gravityConstant`. This creates a new variable `unwrapped`, but only if `gravityConstant` is *not* nil. If you option click on the variable `unwrapped` you will notice that it is a `Double` not a `Double?`
 */
-
-let gravityConstant: Double? = 9.8
+let gravityConstant: Double? = nil
 
 if let unwrapped = gravityConstant {
     // unwrapped exists in this block, and is number unwrapped.
@@ -115,19 +119,17 @@ if let unwrapped = gravityConstant {
     // unwrapped doesn't exist in this block.
     print("gravityConstant did not unwrap")
 }
-
-
 /*:
  - Experiment:
  Try changing `gravityConstant` to nil. What happens?
  */
-
+// woo it just says it does not unwrap 👻
 
 /*:
  - Experiment:
  Create an array with containing elements of any type of your choice. Try experimenting with the array methods `'first'` and `'last'` to find out what they do. You'll see that both return optional values. Print out the values of first and last by using conditional unwrapping.
  */
-
+var crazyArray:Any = [12, "Me", 14, "Hi"]
 
 /*:
  - Experiment:

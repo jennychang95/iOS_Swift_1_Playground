@@ -5,7 +5,7 @@
  
     `print("Hello, world!")`
  */
-
+print("Hello, world!")
 /*:
  ## Variables
 
@@ -21,8 +21,11 @@ students = 7
  Try creating a variable and/or constant for your name, and age.
  What happens if you try to change the value of a constant?
  */
+let name = "Jenny"
+var age = 23
 
-
+// in march
+age = 24
 //: ---
 /*:
  ## Types
@@ -43,7 +46,8 @@ students = 7
  */
 
 var weeksCompleted = 4
-
+// weeksCompleted = "4" cannot assign to a string
+// weeksCompleted = 4.1 cannot assign to a double
 /*:
  As you can see, you don't have to write the type explicitly. Providing a value when you create a constant or variable lets the compiler _infer_ its type. In the example above, the compiler infers that `students` is an integer because its initial value is an integer.
  
@@ -52,7 +56,7 @@ var weeksCompleted = 4
 
 let implicitInteger = 70
 let implicitDouble = 70.0
-let explicitDouble: Double = 70
+let explicitDouble: Double = 70 // we are specifying that it's a double
 
 /*:
  Here are some basic types which you've also seen in Objective-C:
@@ -70,13 +74,14 @@ let explicitDouble: Double = 70
  - Experiment:
  What type are the variables `tipAmount`, and `isOpen`?
  */
+let explicitFloat: Float = 4
 
 var tipAmount = 6.01
-// tipAmount's type is:
+// tipAmount's type is: Double
 
 
 var isOpen = true
-// isOpen's type is:
+// isOpen's type is: Bool
 
 /*:
 Values are never implicitly converted to another type. If you need to convert a value to a different type, explicitly make an instance of the desired type.
@@ -91,6 +96,8 @@ let widthLabel = label + String(width)
  Try removing the conversion to `String` from the last line. What error do you get?
  */
 // binary operator cannot be applied to two different types
+ // widthLabel = label + width
+
 /*:
  - Callout(Challenge):
  Let's solve some simple geometric math problems. For each question, make sure you show your work just like how your teachers told you in high school. Show all the variables you are using and give them meaningful names. Hint: You can declare your own 'pi' using 3.14
@@ -114,7 +121,11 @@ Volume of cylinder = pi * radius^2 * height
 /*:
  Hint: Make sure your radius is of type `Double`
  */
+import Foundation
 
+let pi = 3.14159
+var radius: Double = 10
+var area = pi * pow(radius,2)
 /*:
  - Callout(Problem 2):
  Find the circumference of a circle with a diameter of 24 metres.
@@ -122,7 +133,9 @@ Volume of cylinder = pi * radius^2 * height
 /*:
  Hint: Radius is half the length of the diameter
  */
-
+var diameter: Double = 24
+radius = 0.5 * diameter
+var circumference = 2 * pi * radius
 /*:
  - Callout(Problem 3):
  Find the volume of a cylinder with a radius of 5 metres and a height of 7 metres
@@ -130,6 +143,8 @@ Volume of cylinder = pi * radius^2 * height
 /*:
  Hint: You can double-check your answers yourself or on Google... Google has a really easy input mechanism for all three of these formulas if you just search them up.
  */
-
+var height: Double = 7
+radius = 5
+var volume = pi * radius * 2 * height 
 
 //: [Next](@next)
