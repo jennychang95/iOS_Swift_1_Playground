@@ -129,13 +129,21 @@ if let unwrapped = gravityConstant {
  - Experiment:
  Create an array with containing elements of any type of your choice. Try experimenting with the array methods `'first'` and `'last'` to find out what they do. You'll see that both return optional values. Print out the values of first and last by using conditional unwrapping.
  */
-var crazyArray:Any = [12, "Me", 14, "Hi"]
+var crazyArray:[Any] = [12, "Me", 14, "Hi"]
 
+for me in crazyArray {
+    // check if each element is of string type
+    if let str = me as? String  {
+        print("hi I'm a string \(str)")
+    } else {
+        print("yo I'm not a string")
+    }
+}
 /*:
  - Experiment:
  Using the same array, experiment with the array method `'indexOf'` and find out what it does. Print out the value using conditional unwrapping.
  */
-
+// indexOf doesn't work 😥
 
 /*:
  - Callout(Challenge):
@@ -152,3 +160,12 @@ var crazyArray:Any = [12, "Me", 14, "Hi"]
     Try printing a car's price using a name that doesn't exist.
 */
 //: [Next](@next)
+var cars = ["Mazda3":50000, "CRV":60000, "Hummer":100000]
+
+if let value = cars["CRV"]{
+    print("\(value)")
+} else {
+    print("boooooooo")
+}
+
+

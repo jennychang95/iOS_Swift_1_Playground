@@ -42,7 +42,11 @@ func sayHello(toPerson: String) -> String{
  - Experiment:
  Try calling all of the functions above. They all have the same function name, but the compiler doesn't complain. Can you think of why this might be?
  */
+sayHello() // this returns nothing
+sayHello(toPerson: <#T##String#>) // takes in string and returns nothing
+sayHello(toPerson: <#T##String#>) // takes in string and returns a string
 
+// I suppose that means they are all different methods
 /*:
  - Experiment:
  Try creating your own function that accepts two parameters of any type you choose. Have the function print out the two parameters and test your function.
