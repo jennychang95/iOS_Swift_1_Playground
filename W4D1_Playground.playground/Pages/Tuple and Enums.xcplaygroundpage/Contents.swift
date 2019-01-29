@@ -24,15 +24,15 @@ namedPersonTuple.age
  */
 var myTuple = ("Jenny","Aries",23)
 
-print(myTuple.1)
-print("hi")
-
+myTuple.0
+myTuple.1
+myTuple.2
 /*:
  - Experiment:
  Try nesting tuples within one another. Create a tuple and add a tuple as one of its items.
  */
-
-
+var anotherTuple = ("Sunflowers",26,"Olives",myTuple)
+// 🖖
 /*:
  - Experiment:
  We took a look at tuple earlier during the 'Loops' section. Can you tell where it is being used? Experiment with the tuple names and even change up the interesting numbers to see what's possible.
@@ -42,9 +42,15 @@ let interestingNumbers = [
     "Prime": [2, 3, 5, 7, 11, 13],
     "Fibonacci": [1, 1, 2, 3, 5, 8],
     "Square": [1, 4, 9, 16, 25],
+    "Odd":[1,3,5,7,9]
 ]
 for (kind, numbers) in interestingNumbers {
-    
+    print("category: \(kind)")
+    print(numbers)
+    //    for(n in numbers){
+    //       print(n)
+    //   }
+    print("\n")
 }
 
 /*:
@@ -54,8 +60,11 @@ for (kind, numbers) in interestingNumbers {
 To test: call your new function with eligable true and false, and print the two values
  (Hint: Use optional return value and conditional unwrapping)
  */
+func testingTupleKnowledge(name: String, age: Int, type: Bool) -> (String, Int, Bool) {
+    return (name, age, type)
+}
 
-
+testingTupleKnowledge(name: "Jen", age: 24, type: true)
 /*:
  ## Enums
  Enums are related values defined by the user. An example to think of this are the months within a year. There are only 12 months and when you are programming, you'll need a way to represent this. We could potentially use a String for each month, but that could lead to spelling mistakes. So instead, we can define our own values that makes it obvious to you.
@@ -66,23 +75,54 @@ To test: call your new function with eligable true and false, and print the two 
 
 enum Months: Int{
     case January = 1
-    case Feburary
-    case March
-    case April
-    case May, June, July, August
+    case Feburary = 2
+    case March = 3
+    case April = 4
+    case May = 5
+    case June = 6
+    case July = 7
+    case August = 8
+    case September = 9
+    case October = 10
+    case November = 11
+    case December = 12
     //...
     
     func abbreviatedStringForm() -> String {
         switch self {
-            default:
-                return ""
+        case .January:
+             return "Jan"
+        case .Feburary:
+            return "Feb"
+        case .March:
+            return "Mar"
+        case .April:
+            return "Apr"
+        case .May:
+            return "May"
+        case .June:
+            return "Jun"
+        case .July:
+            return "Jul"
+        case .August:
+            return "Aug"
+        case .September:
+            return "Sep"
+        case .October:
+            return "Oct"
+        case .November:
+            return "Nov"
+        case .December:
+            return "Dec"
         }
     }
 }
 
+// removed default as it'll never called
 //: Now we can represents the months in our program with easy readiablity and minimal mistakes.
-let januaryMonth = Months.January
+let januaryMonth = Months.January.rawValue
 let marchMonth = Months.March
+let octoberMonth = Months.October.rawValue
 
 /*:
  - Experiment:
@@ -90,24 +130,44 @@ let marchMonth = Months.March
  \
 Try removing the '= 1' from the Months enum. Now what is different?
  */
-
-
+// woo it converts it to a numbaaaaa 🌻
+// boo it turns into 0.. 🍂
 /*:
  - Experiment:
  Finish the rest of the months for our `Months` enum. Then take a look at `abbreviatedStringForm()` function. Complete this function so that it returns the abbreviated form of the desired month as a String. ie: calling `Months.January.abbreviatedStringForm()` returns "Jan".
  */
-
-
+Months.January.abbreviatedStringForm()
+Months.October.abbreviatedStringForm()
 /*:
  - Experiment:
  Write a function within the enum that compares two months and determines how many months are they apart. For example: Comparing January to March would return to me '2', because January and March are two months apart.
  */
+func compareTwoMonths(firstMonth:Int, secondMonth:Int) -> Int {
+    
+    return abs(firstMonth - secondMonth)
+}
 
-
+compareTwoMonths(firstMonth: Months.January.rawValue, secondMonth: Months.October.rawValue)
 /*:
  - Callout(Challenge):
  Create enums for the game "Rock, Paper, Scissors". Create a function within the enum that compares two hand shapes and determines the winner. Then create a function that returns ✋ , ✌️, or 👊 given rock, paper, or scissors.
 */
-
+//enum HandShape : String {
+//
+//    case rock = "👊",
+//        paper = "✋",
+//        scissors = "✌️"
+//
+//
+//    func compareHands(second: HandShape.RawValue) -> String {
+//        switch self {
+//            case .👊
+//
+//        return "hi"
+//
+//    }
+//}
+//
+//HandShape.rock.compareHands(second: 👊)
 
 //: [Next](@next)

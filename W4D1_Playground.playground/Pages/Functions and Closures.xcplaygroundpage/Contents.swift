@@ -156,7 +156,6 @@ var sayHelloClosureWithReturn = { (name: String) -> String in
 sayHelloClosure() // we need to call for it to happen
 sayHelloClosureToPerson("Jenny")
 sayHelloClosureWithReturn("Jenny")
-
 /*:
  - Experiment:
  Try creating your own closure that accepts two parameters of any type you choose. Have the closure print out the two parameters and test your closure.
