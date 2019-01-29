@@ -153,19 +153,44 @@ var sayHelloClosureWithReturn = { (name: String) -> String in
  - Experiment:
  Try calling all of the closures above. What do you notice that is different from calling a function?
  */
+sayHelloClosure() // we need to call for it to happen
+sayHelloClosureToPerson("Jenny")
+sayHelloClosureWithReturn("Jenny")
 
 /*:
  - Experiment:
  Try creating your own closure that accepts two parameters of any type you choose. Have the closure print out the two parameters and test your closure.
  */
+var imNotFeelingCreativeRightNow = { (city: String, weather: String) -> () in
+    print("in \(city) there is a lot of \(weather)")
+}
 
+imNotFeelingCreativeRightNow("Vancouver","rain")
 /*:
  - Experiment:
  Declare a variable with an explicit closure type: `(String) -> (String)`. This closure type says it takes one parameter of type String and returns a variable of type String.
  */
+var explicitClosureMethod = { (city: String) -> String in
+    return "in \(city) there are mountains"
+}
 
+explicitClosureMethod("Vancouver")
 /*:
  - Callout(Challenge):
  Create a closure with at least two parameters of your choice and decide whether or not it returns anything. Then create a function that takes in your closure as a parameter and one additional parameter of your choice.
  */
-//: [Next](@next)
+import Foundation
+
+var velocity = { (horizontal: Float, vertical: Float) -> Float in
+
+    return (pow(horizontal,2) + pow(vertical,2)).squareRoot()
+}
+//velocity(12,5)
+
+func calcKineticEnergy(velocity: (Float,Float) -> Float, metre:Float) -> Float {
+    
+    return Float(0.5) * pow(velocity(5,8),2) * metre
+}
+calcKineticEnergy(velocity: velocity, metre: 7.8)
+
+// we can pass the idea of a closure
