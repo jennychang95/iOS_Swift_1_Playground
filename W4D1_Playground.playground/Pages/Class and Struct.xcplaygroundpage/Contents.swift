@@ -153,17 +153,21 @@ secondPersonObject.name = "Jane"
 print(firstPersonObject.name)
 print(secondPersonObject.name)
 
+// sets both names to Jane
 
 // Implement Person struct under here!
 
+struct PersonStruct {
+    var name : String
+}
 
 // Section B
-//var firstPersonStruct = Person(name: "Joe")
-//var secondPersonStruct = firstPersonStruct
-//secondPersonStruct.name = "Jane"
-//
-//print(firstPersonStruct.name)
-//print(secondPersonStruct.name)
+var firstPersonStruct = Person(name: "Joe")
+var secondPersonStruct = firstPersonStruct
+secondPersonStruct.name = "Jane"
 
+print(firstPersonStruct.name)
+print(secondPersonStruct.name)
 
+// equals Jane again
 //: [Next](@next)

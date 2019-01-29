@@ -18,12 +18,14 @@ var namedPersonTuple = (firstName: "Jane", lastName: "Smith", age: 23)
 namedPersonTuple.firstName
 namedPersonTuple.lastName
 namedPersonTuple.age
-
 /*:
  - Experiment:
  Try creating your own tuple. Mix in different variable types and try mixing some parameters with names and some without. Does it still work?
  */
+var myTuple = ("Jenny","Aries",23)
 
+print(myTuple.1)
+print("hi")
 
 /*:
  - Experiment:
