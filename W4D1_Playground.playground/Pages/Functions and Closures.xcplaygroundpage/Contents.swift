@@ -43,28 +43,60 @@ func sayHello(toPerson: String) -> String{
  Try calling all of the functions above. They all have the same function name, but the compiler doesn't complain. Can you think of why this might be?
  */
 sayHello() // this returns nothing
-sayHello(toPerson: <#T##String#>) // takes in string and returns nothing
-sayHello(toPerson: <#T##String#>) // takes in string and returns a string
-
-// I suppose that means they are all different methods
+//sayHello(toPerson: "Jenny") takes in string and returns nothing
+//sayHello(toPerson: "Jenny")  takes in string and returns a string
 /*:
  - Experiment:
  Try creating your own function that accepts two parameters of any type you choose. Have the function print out the two parameters and test your function.
  */
 
+func iWouldLikeABeer(type: String, quantity: String) {
+    print("Hi Danny, do I deserve a \(quantity) of \(type) right now? I managed to complete a function")
+}
+
+iWouldLikeABeer(type: "lager", quantity: "pint")
 /*:
  - Callout(Challenge):
  Create four separate functions to add, subtract, multiple, and divide with two parameters given to it and returns a number result. Try testing each one afterwards.
  
  */
+func add(first: Float, second: Float) -> Float {
+    return first + second
+}
 
+func subtract(first: Float, second: Float) -> Float {
+    return first - second
+}
+
+func divide(first: Float, second: Float) -> Float {
+    return first / second
+}
+
+func multipy(first: Float, second: Float) -> Float {
+    return first * second
+}
+
+add(first: 2, second: 4)
+subtract(first: 40, second: 2)
+divide(first: 40, second: 7)
+multipy(first: 4, second: 5.6)
 /*:
  - Callout(Challenge):
  Create your own 'reverse' function that takes in an array of Int, reverses the order of the array, and returns the newly reversed array of Int. The array class has its own 'reverse' method, but do not use it for this challenge.
  */
+func reverse(array:[Int]) -> [Int] {
+    var reverse:[Int] = []
+    
+    for i in 0..<array.count {
+        reverse.append(array[array.count-1-i])
+    }
+        return reverse
+}
 
-/*:
- ## Closures
+let moreNumbers = [5,10,15,20,50]
+reverse(array: moreNumbers)
+
+/*
  
  Closures are also a set of statements grouped together but the closure can be stored and passed around and executed somewhere else.
  
